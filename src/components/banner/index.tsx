@@ -102,7 +102,7 @@ export default function BannerCPN() {
         onClick={handleToTop}
       >
         <div className="img-arrow">
-          <img src="/assets/images/banner/img-arrow-down.svg" alt="arrow" />
+          <img src="/assets/images/banner/img-arrow-down.png" alt="arrow" />
         </div>
       </BtnToTop>
       <CountDownContainer>

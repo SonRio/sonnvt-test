@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   ContainerBlock,
   ImgLogo,
@@ -15,9 +15,11 @@ import {
   WrapLogoAndNav,
 } from "./styled";
 import { useMediaQuery } from "react-responsive";
+import MenuHamburger from "./menu-bugger";
 
 export default function Header() {
   const [isSelectLang, setIsSelectLang] = useState(false);
+  const [isShowNavMB, setIsShowNavMB] = useState(false);
   const [languageSelected, setLanguageSelected] = useState<OptionLanguageType>(
     LIST_LANGUAGES[0]
   );
@@ -38,6 +40,15 @@ export default function Header() {
 
   return (
     <WrapHeader>
+      <MenuHamburger
+        NAV_LINKS={NAV_LINKS}
+        setIsShowMenu={() => setIsShowNavMB(!isShowNavMB)}
+        isShowMenu={isShowNavMB}
+        isSelectLang={isSelectLang}
+        languageSelected={languageSelected}
+        onSelectLang={handleSelectLang}
+        setIsSelectLang={setIsSelectLang}
+      />
       <ContainerBlock>
         <WrapLogoAndNav className="flex justify-between items-center">
           <LogoHome onClick={handleToTop}>
@@ -46,7 +57,11 @@ export default function Header() {
             </ImgLogo>
           </LogoHome>
           {isMobile ? (
-            <MenuBugger>
+            <MenuBugger
+              onClick={() => {
+                setIsShowNavMB(!isShowNavMB);
+              }}
+            >
               <img src="/assets/images/header/menu.svg" alt="menu" />
             </MenuBugger>
           ) : (
@@ -124,18 +139,18 @@ export default function Header() {
   );
 }
 
-type NavLinkType = {
+export type NavLinkType = {
   label: string;
   href: string;
 };
 
-type OptionLanguageType = {
+export type OptionLanguageType = {
   label: string;
   img: string;
   value: string;
 };
 
-const LIST_LANGUAGES: OptionLanguageType[] = [
+export const LIST_LANGUAGES: OptionLanguageType[] = [
   {
     img: "/assets/images/header/img-flag-vn.svg",
     label: "VietNamese",

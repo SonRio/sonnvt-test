@@ -43,7 +43,7 @@ export const BtnToTop = styled.button`
   position: fixed;
   bottom: 200px;
   right: 80px;
-  z-index: 999;
+  z-index: 99;
   @media screen and (max-width: 1024px) {
     bottom: 50px;
     right: 10px;

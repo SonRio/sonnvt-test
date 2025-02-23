@@ -76,7 +76,7 @@ export default function OurPartners() {
 
   return (
     <WrapOurPartners id="partners">
-      <TitleBlock data-aos="fade-right">
+      <TitleBlock data-aos="fade-up">
         <h2 className="mb-6">{translate("Our Partners", trans)}</h2>
       </TitleBlock>
       <ShowPartners className="flex items-center">

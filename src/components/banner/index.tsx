@@ -92,7 +92,7 @@ export default function BannerCPN() {
 
   return (
     <WrapBanner>
-      <div className="img-fairy animate__animated animate__slideInLeft">
+      <div className="img-fairy">
         <img src="/assets/images/banner/img-fairy.png" alt="fairy" />
       </div>
       <BtnToTop
@@ -108,7 +108,7 @@ export default function BannerCPN() {
       <CountDownContainer>
         <div className="bg-blur"></div>
         <h1
-          className="animate__animated animate__fadeInLeft"
+          className="animate__animated animate__fadeInUp"
           dangerouslySetInnerHTML={{
             __html: translate("We re Getting Ready", trans, {
               br: isMobile ? "<br />" : "",

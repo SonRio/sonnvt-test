@@ -22,7 +22,7 @@ export default function AboutUs() {
   return (
     <WrapAboutUs id="about">
       <ContainerAboutUs className="flex gap-10 items-stretch">
-        <AboutUsBlock data-aos="fade-right">
+        <AboutUsBlock data-aos="fade-up">
           <h2>{translate("About Us", trans)}</h2>
           <p>{translate("Browse", trans)}</p>
           <WrapCountUser className="flex flex-col">
@@ -38,7 +38,7 @@ export default function AboutUs() {
             </CountUser>
           </WrapCountUser>
         </AboutUsBlock>
-        <BenefitBlock data-aos="fade-left" className="flex flex-col gap-10">
+        <BenefitBlock data-aos="fade-up" className="flex flex-col gap-10">
           {LIST_BENEFITS.map((benefit: BenefitsType, index: number) => (
             <BenefitItem className="flex" key={index}>
               <div className="img-benefit">

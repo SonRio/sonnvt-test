@@ -24,10 +24,11 @@ export const WrapBanner = styled.div`
     background-image: url("/assets/images/banner/bg-banner-mb.png");
     background-position: 0 0;
     height: auto;
+    padding-bottom: 70px;
     .img-fairy {
       max-width: 320px;
-      top: 480px;
-      right: -34px;
+      top: 550px;
+      right: 0px;
     }
   }
 `;
@@ -46,7 +47,7 @@ export const BtnToTop = styled.button`
   z-index: 99;
   @media screen and (max-width: 1024px) {
     bottom: 50px;
-    right: 10px;
+    right: 20px;
   }
 `;
 
@@ -95,7 +96,7 @@ export const CountDownContainer = styled.div`
   }
   @media screen and (max-width: 1024px) {
     .bg-blur {
-      width: 0px;
+      display: none;
     }
   }
   @media screen and (max-width: 767px) {

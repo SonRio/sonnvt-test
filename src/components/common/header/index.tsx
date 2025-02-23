@@ -70,10 +70,7 @@ export default function Header() {
       />
       <ContainerBlock>
         <WrapLogoAndNav className="flex justify-between items-center">
-          <LogoHome
-            onClick={handleToTop}
-            className="animate__animated animate__fadeIn"
-          >
+          <LogoHome onClick={handleToTop}>
             <ImgLogo className="flex items-center">
               <img src="/assets/images/header/logo-home.svg" alt="home" />
             </ImgLogo>

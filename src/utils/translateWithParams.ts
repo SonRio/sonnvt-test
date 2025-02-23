@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 export function translate(key: string, locale: any, params: any = {}) {
   if (!locale) return "";
   let text = locale[key] || key;

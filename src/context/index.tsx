@@ -1,5 +1,7 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import * as en from "@/languages/en.json";
 import * as vi from "@/languages/vi.json";

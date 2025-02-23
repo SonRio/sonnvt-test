@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>Hi, I'm Son</title>
+        <title>Hi, I am Son</title>
       </head>
       <body
         className={`${montserrat.className} ${playfair_Display.className} antialiased`}

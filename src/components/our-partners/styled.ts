@@ -1,6 +1,5 @@
 "use client";
 import { styled } from "styled-components";
-import { TitleBlock } from "../our-games/styled";
 
 export const WrapOurPartners = styled.div`
   position: relative;

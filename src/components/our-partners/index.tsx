@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 "use client";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -58,6 +59,7 @@ export default function OurPartners() {
 
   const { trans } = useContext(ContextProviderWrapper)!;
 
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   const handleNextSwiper = (swiper: any) => {
     const slideTo = slideActive === 0 ? LIST_PARTNER.length : slideActive - 1;
     swiper.slideTo(slideTo);

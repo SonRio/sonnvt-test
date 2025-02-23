@@ -24,6 +24,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 img {

@@ -6,10 +6,10 @@ import {
   ContainerAboutUs,
   CountUser,
   DesBenefitItem,
-  ImgMap,
   ImgWitch,
   WitchAndMap,
   WrapAboutUs,
+  WrapCountUser,
 } from "./styled";
 
 export default function AboutUs() {
@@ -28,16 +28,18 @@ export default function AboutUs() {
             anywhere else on the Internet. Explore a whole new world of gaming
             on Etech.
           </p>
-          <CountUser className="flex flex-col mt-20 mb-10">
-            <h1 className="text-primary">
-              600<span>M</span>+
-            </h1>
-            <p>Users</p>
-          </CountUser>
-          <CountUser className="flex flex-col ">
-            <h1 className="text-primary">135+</h1>
-            <p>Games</p>
-          </CountUser>
+          <WrapCountUser className="flex flex-col">
+            <CountUser className="flex flex-col mt-20 mb-10">
+              <h1 className="text-primary">
+                600<span>M</span>+
+              </h1>
+              <p>Users</p>
+            </CountUser>
+            <CountUser className="flex flex-col ">
+              <h1 className="text-primary">135+</h1>
+              <p>Games</p>
+            </CountUser>
+          </WrapCountUser>
         </AboutUsBlock>
         <BenefitBlock className="flex flex-col gap-10">
           {LIST_BENEFITS.map((benefit: BenefitsType, index: number) => (
@@ -57,9 +59,9 @@ export default function AboutUs() {
         <ImgWitch>
           <img src="/assets/images/about/img-witch.png" alt="witch" />
         </ImgWitch>
-        <ImgMap>
+        <ContainerAboutUs>
           <img src="/assets/images/about/img-map.png" alt="map" />
-        </ImgMap>
+        </ContainerAboutUs>
       </WitchAndMap>
     </WrapAboutUs>
   );

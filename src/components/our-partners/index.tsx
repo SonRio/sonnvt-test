@@ -1,7 +1,7 @@
 "use client";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { TitleBlock } from "../our-games/styled";
 import {
   BtnNext,
@@ -11,9 +11,62 @@ import {
   WrapOurPartners,
   WrapSlide,
 } from "./styled";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
+import { useMediaQuery } from "react-responsive";
+import { useState } from "react";
+
+type ButtonType = {
+  onClick: (params: any) => void;
+};
+
+const ButtonPrev = ({ onClick }: ButtonType) => {
+  const swiper = useSwiper();
+  return (
+    <BtnPrev
+      onClick={() => {
+        onClick(swiper);
+      }}
+    >
+      <div className="img-arrow">
+        <img src="/assets/images/partners/arrow.png" alt="" />
+      </div>
+    </BtnPrev>
+  );
+};
+
+const ButtonNext = ({ onClick }: ButtonType) => {
+  const swiper = useSwiper();
+  return (
+    <BtnNext
+      onClick={() => {
+        onClick(swiper);
+      }}
+    >
+      <div className="img-arrow">
+        <img src="/assets/images/partners/arrow-2.png" alt="" />
+      </div>
+    </BtnNext>
+  );
+};
 
 export default function OurPartners() {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const [slideActive, setSlideActive] = useState(10);
+
+  const handleNextSwiper = (swiper: any) => {
+    const slideTo = slideActive === 0 ? LIST_PARTNER.length : slideActive - 1;
+    swiper.slideTo(slideTo);
+  };
+
+  const handlePreSwiper = (swiper: any) => {
+    const slideTo = slideActive === 4 ? 1 : slideActive + 1;
+    swiper.slideTo(slideTo);
+  };
+
+  const onSetSwiper = (swiper: any) => {
+    setSlideActive(swiper.activeIndex);
+  };
+
   return (
     <WrapOurPartners id="partners">
       <TitleBlock>
@@ -22,8 +75,8 @@ export default function OurPartners() {
       <ShowPartners className="flex items-center">
         <WrapSlide className="flex items-center">
           <Swiper
-            slidesPerView={5}
-            spaceBetween={40}
+            slidesPerView={isMobile ? 3 : 5}
+            spaceBetween={isMobile ? 5 : 40}
             pagination={{
               clickable: true,
             }}
@@ -34,12 +87,9 @@ export default function OurPartners() {
             className="mySwiper"
             navigation={true}
             modules={[Autoplay]}
+            onSlideChange={(swiper: any) => onSetSwiper(swiper)}
           >
-            <BtnNext>
-              <div className="img-arrow">
-                <img src="/assets/images/partners/arrow.png" alt="" />
-              </div>
-            </BtnNext>
+            <ButtonPrev onClick={handlePreSwiper} />
             {LIST_PARTNER.map((item: { img: string }, index: number) => (
               <SwiperSlide key={index}>
                 <Partner>
@@ -49,11 +99,7 @@ export default function OurPartners() {
                 </Partner>
               </SwiperSlide>
             ))}
-            <BtnPrev>
-              <div className="img-arrow">
-                <img src="/assets/images/partners/arrow-2.png" alt="" />
-              </div>
-            </BtnPrev>
+            <ButtonNext onClick={handleNextSwiper} />
           </Swiper>
         </WrapSlide>
       </ShowPartners>

@@ -14,6 +14,22 @@ export const WrapBanner = styled.div`
     position: absolute;
     top: 84px;
   }
+  @media screen and (max-width: 1440px) {
+    .img-fairy {
+      max-width: 650px;
+      top: 310px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    background-image: url("/assets/images/banner/bg-banner-mb.png");
+    background-position: 0 0;
+    height: auto;
+    .img-fairy {
+      max-width: 320px;
+      top: 480px;
+      right: -34px;
+    }
+  }
 `;
 
 export const BtnToTop = styled.button`
@@ -28,6 +44,10 @@ export const BtnToTop = styled.button`
   bottom: 200px;
   right: 80px;
   z-index: 999;
+  @media screen and (max-width: 1024px) {
+    bottom: 50px;
+    right: 10px;
+  }
 `;
 
 export const CountDownContainer = styled.div`
@@ -52,7 +72,12 @@ export const CountDownContainer = styled.div`
   .bg-blur {
     width: 1050px;
     height: 350px;
-    background: rgba(0, 0, 0, 0.1);
+    background: radial-gradient(
+      27.72% 27.79% at 50.81% 68.15%,
+      #210544 0%,
+      rgba(23, 5, 68, 0.71) 50.52%,
+      rgba(23, 5, 68, 0) 100%
+    );
     backdrop-filter: blur(5px);
     position: absolute;
     border-radius: 40%;
@@ -60,7 +85,31 @@ export const CountDownContainer = styled.div`
     left: -80px;
     bottom: -100px;
     mix-blend-mode: color-dodge;
-    /* pointer-events: none; */
+    pointer-events: none;
+  }
+  @media screen and (max-width: 1440px) {
+    .bg-blur {
+      width: 860px;
+      left: 40px;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .bg-blur {
+      width: 0px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    padding: 0 16px;
+    padding-top: 115px;
+    padding-bottom: 100px;
+    h1 {
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 50px; /* 125% */
+      letter-spacing: 0.6px;
+      margin-bottom: 35px;
+      margin-top: 21px;
+    }
   }
 `;
 
@@ -82,6 +131,21 @@ export const TimeCountDown = styled.div`
     line-height: normal;
     letter-spacing: -0.652px;
   }
+  @media screen and (max-width: 767px) {
+    padding: 30px 26px;
+    margin-bottom: 40px;
+    h3 {
+      color: var(--Neutral-Black, #000);
+      text-align: center;
+      font-feature-settings: "liga" off, "clig" off;
+      font-family: Montserrat;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.652px;
+    }
+  }
 `;
 
 export const Time = styled.div`
@@ -99,6 +163,16 @@ export const Time = styled.div`
   h2 {
     margin-bottom: 20px;
   }
+  @media screen and (max-width: 767px) {
+    h2 {
+      font-size: 36px;
+      line-height: 45px;
+      margin: 0;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
 `;
 
 export const DesAndInput = styled.div`
@@ -112,6 +186,14 @@ export const DesAndInput = styled.div`
     font-weight: 400;
     line-height: 126%; /* 22.68px */
     margin-bottom: 32px;
+  }
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    p {
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 18px;
+    }
   }
 `;
 

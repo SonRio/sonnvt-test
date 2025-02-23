@@ -7,6 +7,12 @@ export const ContainerBlock = styled.div`
   padding: 0 80px;
   margin: 0 auto;
   position: relative;
+  @media screen and (max-width: 1024px) {
+    padding: 0 20px;
+  }
+  @media screen and (max-width: 767px) {
+    padding: 0 16px;
+  }
 `;
 
 export const WrapHeader = styled.div`
@@ -26,6 +32,9 @@ export const WrapHeader = styled.div`
 export const WrapLogoAndNav = styled.div`
   position: relative;
   width: 100%;
+  @media screen and (max-width: 767px) {
+    padding-top: 30px;
+  }
 `;
 
 export const LogoHome = styled.div`
@@ -35,6 +44,9 @@ export const LogoHome = styled.div`
 
 export const ImgLogo = styled.div`
   max-width: 108px;
+  @media screen and (max-width: 767px) {
+    max-width: 68px;
+  }
 `;
 
 export const Navbar = styled.div`
@@ -89,4 +101,8 @@ export const LanguageOption = styled.div`
     font-weight: 700;
     line-height: 17.5px; /* 175% */
   }
+`;
+
+export const MenuBugger = styled.div`
+  max-width: 40px;
 `;

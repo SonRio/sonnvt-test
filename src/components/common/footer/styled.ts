@@ -17,12 +17,29 @@ export const WrapInfoCom = styled.div`
   ${ContainerBlock} {
     padding: 0 230px;
   }
+  @media screen and (max-width: 1024px) {
+    ${ContainerBlock} {
+      padding: 0 20px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    ${ContainerBlock} {
+      padding: 0 16px;
+    }
+  }
 `;
 
 export const InfoCom = styled.div`
   width: 100%;
   position: relative;
   padding: 102px 0;
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    padding: 40px 0;
+    align-items: center;
+    padding-bottom: 60px;
+    gap: 66px;
+  }
 `;
 
 export const LogoAndSocial = styled.div`
@@ -44,6 +61,14 @@ export const Social = styled.div`
 export const AddressAndSub = styled.div`
   position: relative;
   width: 59%;
+  @media screen and (max-width: 1024px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    flex-direction: column;
+    gap: 70px;
+  }
 `;
 
 export const BlockInfo = styled.div`
@@ -54,6 +79,16 @@ export const BlockInfo = styled.div`
   &:nth-child(2) {
     width: 48%;
     margin-left: 50px;
+  }
+  @media screen and (max-width: 767px) {
+    &:nth-child(2) {
+      width: 100%;
+      margin-left: 0px;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+    }
   }
 `;
 
@@ -76,6 +111,16 @@ export const RowInfo = styled.div`
       color: #fff;
     }
   }
+  @media screen and (max-width: 767px) {
+    &:nth-child(3) {
+      margin-bottom: 20px;
+    }
+    ${InputEmail} {
+      input {
+        margin-top: 5px;
+      }
+    }
+  }
 `;
 
 export const CopyRight = styled.div`
@@ -89,5 +134,8 @@ export const CopyRight = styled.div`
     font-weight: 400;
     line-height: 126%; /* 22.68px */
     text-align: center;
+  }
+  @media screen and (max-width: 767px) {
+    padding: 20px 0;
   }
 `;

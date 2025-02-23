@@ -9,9 +9,12 @@ import {
   TimeCountDown,
   WrapBanner,
 } from "./styled";
+import { useMediaQuery } from "react-responsive";
 
 export default function BannerCPN() {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
@@ -50,7 +53,7 @@ export default function BannerCPN() {
       </BtnToTop>
       <CountDownContainer>
         <div className="bg-blur"></div>
-        <h1>We’re Getting Ready</h1>
+        <h1>We’re {isMobile && <br />} Getting Ready</h1>
         <TimeCountDown className="flex justify-between">
           <Time>
             <h2>30</h2>

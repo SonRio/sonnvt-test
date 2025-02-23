@@ -1,4 +1,5 @@
 "use client";
+
 import {
   AboutUsBlock,
   BenefitBlock,
@@ -11,33 +12,29 @@ import {
   WrapAboutUs,
   WrapCountUser,
 } from "./styled";
+import { translate } from "@/utils/translateWithParams";
+import { useContext } from "react";
+import { ContextProviderWrapper } from "@/context";
 
 export default function AboutUs() {
+  const { trans } = useContext(ContextProviderWrapper)!;
+
   return (
     <WrapAboutUs id="about">
       <ContainerAboutUs className="flex gap-10 items-stretch">
         <AboutUsBlock>
-          <h2>About Us</h2>
-          <p>
-            Browse our selection of free online games and have a great time
-            without leaving the site! Our Kids Games option also includes game
-            reviews, extensive game cheats and walkthroughs, and much more. We
-            have exclusive free downloads, videos, and articles as well. Etech
-            reviews the most popular kids games from all the most popular video
-            gaming platforms, so you don't need to search around for fun
-            anywhere else on the Internet. Explore a whole new world of gaming
-            on Etech.
-          </p>
+          <h2>{translate("About Us", trans)}</h2>
+          <p>{translate("Browse", trans)}</p>
           <WrapCountUser className="flex flex-col">
             <CountUser className="flex flex-col mt-20 mb-10">
               <h1 className="text-primary">
                 600<span>M</span>+
               </h1>
-              <p>Users</p>
+              <p>{translate("Users", trans)}</p>
             </CountUser>
             <CountUser className="flex flex-col ">
               <h1 className="text-primary">135+</h1>
-              <p>Games</p>
+              <p>{translate("Games", trans)}</p>
             </CountUser>
           </WrapCountUser>
         </AboutUsBlock>
@@ -48,8 +45,8 @@ export default function AboutUs() {
                 <img src={benefit.img} alt="benefit" />
               </div>
               <DesBenefitItem>
-                <h3>{benefit.title}</h3>
-                <p>{benefit.des}</p>
+                <h3>{translate(benefit.title, trans)}</h3>
+                <p>{translate(benefit.des, trans)}</p>
               </DesBenefitItem>
             </BenefitItem>
           ))}
@@ -76,17 +73,17 @@ type BenefitsType = {
 const LIST_BENEFITS: BenefitsType[] = [
   {
     img: "/assets/images/about/img-hour.svg",
-    title: "24 - Hour",
-    des: "24/7 access ensures operators' businesses runs smoothly all year long.",
+    title: "24",
+    des: "24/7",
   },
   {
     img: "/assets/images/about/img-design.svg",
     title: "Design",
-    des: "Combining imaginative universes, play dynamics, and unprecedented gameplay, our games transcend the boundaries of the virtual world by weaving innovative gameplay.",
+    des: "Combining",
   },
   {
     img: "/assets/images/about/img-team.svg",
     title: "Team",
-    des: "Etech is an award-winning, international studio of designers, artists, animators and producers that create content for the biggest names in film and video games. ",
+    des: "Etech",
   },
 ];

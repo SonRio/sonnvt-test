@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Link from "next/link";
 import {
   BtnClose,
@@ -13,6 +12,8 @@ import {
   WrapModalMenu,
 } from "./styled";
 import { LIST_LANGUAGES, OptionLanguageType } from ".";
+import { translate } from "@/utils/translateWithParams";
+import { ContextProviderWrapper } from "@/context";
 
 type MenuHamburgerType = {
   NAV_LINKS: any[];
@@ -33,6 +34,7 @@ const MenuHamburger = ({
   setIsShowMenu,
   setIsSelectLang,
 }: MenuHamburgerType) => {
+  const { trans } = useContext(ContextProviderWrapper)!;
   const smoothScroll = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
@@ -131,7 +133,7 @@ const MenuHamburger = ({
             }}
           >
             <ItemMenuMB key={index}>
-              <p>{item.label}</p>
+              <p> {translate(item.label, trans)}</p>
             </ItemMenuMB>
           </Link>
         ))}

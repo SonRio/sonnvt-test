@@ -12,7 +12,12 @@ import {
   RowInfo,
 } from "./styled";
 
+import { translate } from "@/utils/translateWithParams";
+import { useContext } from "react";
+import { ContextProviderWrapper } from "@/context";
+
 export default function Footer() {
+  const { trans } = useContext(ContextProviderWrapper)!;
   const handleToTop = () => {
     window.scrollTo({
       top: 0,
@@ -43,7 +48,7 @@ export default function Footer() {
             </LogoAndSocial>
             <AddressAndSub className="flex">
               <BlockInfo>
-                <h3 className="mb-10">Address</h3>
+                <h3 className="mb-10">{translate("Address", trans)}</h3>
                 <RowInfo className="flex mb-3">
                   <div className="img-represent">
                     <img
@@ -51,17 +56,11 @@ export default function Footer() {
                       alt="location"
                     />
                   </div>
-                  <p>
-                    Valletta Buildings, South Street, Valletta - VLT 1103 Malta,
-                    US
-                  </p>
+                  <p>{translate("Valletta", trans)}</p>
                 </RowInfo>
                 <RowInfo className="flex mb-10">
                   <div className="img-represent"></div>
-                  <p>
-                    Valletta Buildings, South Street, Valletta - VLT 1103 Malta,
-                    US
-                  </p>
+                  <p>{translate("20", trans)}</p>
                 </RowInfo>
                 <RowInfo className="flex items-center">
                   <div className="img-represent">
@@ -77,16 +76,16 @@ export default function Footer() {
                 </RowInfo>
               </BlockInfo>
               <BlockInfo>
-                <h3 className="mb-10">Subscribe</h3>
+                <h3 className="mb-10">{translate("Subscribe", trans)}</h3>
                 <RowInfo className="flex mb-3">
-                  <p>
-                    Subscribe to our newsletter and be the first to know about
-                    our updates
-                  </p>
+                  <p>{translate("Subscribeto", trans)}</p>
                 </RowInfo>
                 <RowInfo className="flex">
                   <InputEmail className="w-full">
-                    <input type="text" placeholder="Enter your email" />
+                    <input
+                      type="text"
+                      placeholder={translate("Email", trans)}
+                    />
                     <div className="img-arrow-right">
                       <img
                         src="/assets/images/footer/arrow-right.svg"

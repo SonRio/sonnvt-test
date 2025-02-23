@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   ContainerBlock,
   ImgLogo,
@@ -17,6 +17,9 @@ import {
 import { useMediaQuery } from "react-responsive";
 import MenuHamburger from "./menu-bugger";
 
+import { translate } from "@/utils/translateWithParams";
+import { ContextProviderWrapper } from "@/context";
+
 export default function Header() {
   const [isSelectLang, setIsSelectLang] = useState(false);
   const [isShowNavMB, setIsShowNavMB] = useState(false);
@@ -25,8 +28,12 @@ export default function Header() {
   );
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const { onChangeLanguage, trans } = useContext(ContextProviderWrapper)!;
 
   const handleSelectLang = (language: OptionLanguageType) => {
+    if (typeof window === "undefined") return;
+    localStorage.setItem("language", language.value);
+    onChangeLanguage(language.value);
     setLanguageSelected(language);
   };
 
@@ -37,6 +44,18 @@ export default function Header() {
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    if (window === undefined) return;
+    const defaultLang = localStorage.getItem("language");
+    if (!defaultLang || defaultLang === "en") {
+      onChangeLanguage(LIST_LANGUAGES[0].value);
+      setLanguageSelected(LIST_LANGUAGES[0]);
+    } else {
+      onChangeLanguage(LIST_LANGUAGES[1].value);
+      setLanguageSelected(LIST_LANGUAGES[1]);
+    }
+  });
 
   return (
     <WrapHeader>
@@ -72,7 +91,9 @@ export default function Header() {
                   className="flex items-center"
                   key={index}
                 >
-                  <p className="text-white cursor-pointer">{link.label}</p>
+                  <p className="text-white cursor-pointer">
+                    {translate(link.label, trans)}
+                  </p>
                 </NavbarLink>
               ))}
               <SwitchLanguage
@@ -152,14 +173,14 @@ export type OptionLanguageType = {
 
 export const LIST_LANGUAGES: OptionLanguageType[] = [
   {
-    img: "/assets/images/header/img-flag-vn.svg",
-    label: "VietNamese",
-    value: "vn",
-  },
-  {
     img: "/assets/images/header/img-flag-usa.svg",
     label: "English",
     value: "en",
+  },
+  {
+    img: "/assets/images/header/img-flag-vn.svg",
+    label: "VietNamese",
+    value: "vn",
   },
 ];
 

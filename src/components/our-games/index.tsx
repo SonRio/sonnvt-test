@@ -1,4 +1,5 @@
 "use client";
+
 import { ContainerBlock } from "../common/header/styled";
 import {
   ShowAllGame,
@@ -8,18 +9,17 @@ import {
   WrapOurGames,
   WrapSlideGameItem,
 } from "./styled";
+import { translate } from "@/utils/translateWithParams";
+import { useContext } from "react";
+import { ContextProviderWrapper } from "@/context";
 
 export default function OurGames() {
+  const { trans } = useContext(ContextProviderWrapper)!;
   return (
     <WrapOurGames id="games">
       <TitleBlock>
-        <h2 className="mb-6">Our Games</h2>
-        <p className="text-center">
-          As a pioneer of mobile app gamification, we take pride in originality
-          and individuality, providing global players with state-of-the-art
-          games that feature splendid storylines, sensational sound effects and
-          magnificent animation that never cease to impress.
-        </p>
+        <h2 className="mb-6">{translate("Our Games", trans)}</h2>
+        <p className="text-center">{translate("As", trans)}</p>
       </TitleBlock>
       <ContainerBlock>
         <ShowAllGame className="flex">

@@ -3,6 +3,7 @@ import "animate.css";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import { Montserrat, Playfair_Display } from "next/font/google";
+import { ContextProvider } from "@/context";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -25,9 +26,11 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} ${playfair_Display.className} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <ContextProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ContextProvider>
       </body>
     </html>
   );

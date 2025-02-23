@@ -13,7 +13,10 @@ import {
 } from "./styled";
 import { Autoplay } from "swiper/modules";
 import { useMediaQuery } from "react-responsive";
-import { useState } from "react";
+import { useContext, useState } from "react";
+
+import { translate } from "@/utils/translateWithParams";
+import { ContextProviderWrapper } from "@/context";
 
 type ButtonType = {
   onClick: (params: any) => void;
@@ -53,6 +56,8 @@ export default function OurPartners() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [slideActive, setSlideActive] = useState(10);
 
+  const { trans } = useContext(ContextProviderWrapper)!;
+
   const handleNextSwiper = (swiper: any) => {
     const slideTo = slideActive === 0 ? LIST_PARTNER.length : slideActive - 1;
     swiper.slideTo(slideTo);
@@ -70,7 +75,7 @@ export default function OurPartners() {
   return (
     <WrapOurPartners id="partners">
       <TitleBlock>
-        <h2 className="mb-6">Our Partners</h2>
+        <h2 className="mb-6">{translate("Our Partners", trans)}</h2>
       </TitleBlock>
       <ShowPartners className="flex items-center">
         <WrapSlide className="flex items-center">

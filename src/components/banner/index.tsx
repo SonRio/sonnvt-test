@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   BtnToTop,
   CountDownContainer,
@@ -12,13 +12,18 @@ import {
 import { useMediaQuery } from "react-responsive";
 import { formatUnitTime } from "@/utils/formatUnitTime";
 
+import { translate } from "@/utils/translateWithParams";
+import { ContextProviderWrapper } from "@/context";
+
 export default function BannerCPN() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [days, setDays] = useState<string>("00");
   const [hours, setHours] = useState<string>("00");
   const [minutes, setMinutes] = useState<string>("00");
   const [secs, setSecs] = useState<string>("00");
+
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const { trans } = useContext(ContextProviderWrapper)!;
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -102,35 +107,41 @@ export default function BannerCPN() {
       </BtnToTop>
       <CountDownContainer>
         <div className="bg-blur"></div>
-        <h1>We’re {isMobile && <br />} Getting Ready</h1>
+        <h1
+          dangerouslySetInnerHTML={{
+            __html: translate("We re Getting Ready", trans, {
+              br: isMobile ? "<br />" : "",
+            }),
+          }}
+        ></h1>
         <TimeCountDown className="flex justify-between">
           <Time>
             <h2>{days}</h2>
-            <p>Days</p>
+            <p>{translate("Days", trans)}</p>
           </Time>
           <h3>:</h3>
           <Time>
             <h2>{hours}</h2>
-            <p>Hours</p>
+            <p>{translate("Hours", trans)}</p>
           </Time>
           <h3>:</h3>
           <Time>
             <h2>{minutes}</h2>
-            <p>Minutes</p>
+            <p>{translate("Minutes", trans)}</p>
           </Time>
           <h3>:</h3>
           <Time>
             <h2>{secs}</h2>
-            <p>Second</p>
+            <p>{translate("Second", trans)}</p>
           </Time>
         </TimeCountDown>
         <DesAndInput>
-          <p>
-            We will back to something amazing. Getting the latest <br /> updates
-            about our games. Please sign up to our newsletter.
-          </p>
+          <p>{translate("We will back", trans)}</p>
           <InputEmail>
-            <input type="text" placeholder="Enter your email" />
+            <input
+              type="text"
+              placeholder={translate("Enter your email", trans)}
+            />
             <div className="img-arrow-right">
               <img src="/assets/images/banner/arrow-right.svg" alt="arrow" />
             </div>

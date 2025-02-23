@@ -87,7 +87,7 @@ export default function Header() {
               <img src="/assets/images/header/menu.svg" alt="menu" />
             </MenuBugger>
           ) : (
-            <Navbar className="flex items-center justify-between animate__animated animate__fadeIn">
+            <Navbar className="flex items-center justify-between">
               {NAV_LINKS.map((link: NavLinkType, index: number) => (
                 <NavbarLink
                   href={link.href}

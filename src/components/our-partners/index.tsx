@@ -79,7 +79,7 @@ export default function OurPartners() {
       <TitleBlock data-aos="fade-right">
         <h2 className="mb-6">{translate("Our Partners", trans)}</h2>
       </TitleBlock>
-      <ShowPartners data-aos="fade-left" className="flex items-center">
+      <ShowPartners className="flex items-center">
         <WrapSlide className="flex items-center">
           <Swiper
             slidesPerView={isMobile ? 3 : 5}

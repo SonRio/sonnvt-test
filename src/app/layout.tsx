@@ -23,6 +23,16 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <title>Hi, I am Son</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <link
+          rel="icon"
+          href="/assets/images/header/logo-home.svg"
+          type="image/40"
+          sizes="40"
+        />
       </head>
       <body
         className={`${montserrat.className} ${playfair_Display.className} antialiased`}

@@ -27,7 +27,7 @@ export default function Footer() {
   };
   return (
     <WrapFooter id="contact">
-      <WrapInfoCom>
+      <WrapInfoCom data-aos="fade-up">
         <ContainerBlock>
           <InfoCom className="flex justify-between">
             <LogoAndSocial>

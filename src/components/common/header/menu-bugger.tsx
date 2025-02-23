@@ -81,7 +81,7 @@ const MenuHamburger = ({
               </div>
             </LanguageSelected>
             {isSelectLang && (
-              <LanguageOptions>
+              <LanguageOptions data-aos="flip-left">
                 {LIST_LANGUAGES?.map(
                   (lang: OptionLanguageType, index: number) => (
                     <LanguageOption

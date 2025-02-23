@@ -70,7 +70,10 @@ export default function Header() {
       />
       <ContainerBlock>
         <WrapLogoAndNav className="flex justify-between items-center">
-          <LogoHome onClick={handleToTop}>
+          <LogoHome
+            onClick={handleToTop}
+            className="animate__animated animate__fadeIn"
+          >
             <ImgLogo className="flex items-center">
               <img src="/assets/images/header/logo-home.svg" alt="home" />
             </ImgLogo>
@@ -84,7 +87,7 @@ export default function Header() {
               <img src="/assets/images/header/menu.svg" alt="menu" />
             </MenuBugger>
           ) : (
-            <Navbar className="flex items-center justify-between">
+            <Navbar className="flex items-center justify-between animate__animated animate__fadeIn">
               {NAV_LINKS.map((link: NavLinkType, index: number) => (
                 <NavbarLink
                   href={link.href}
@@ -120,7 +123,7 @@ export default function Header() {
                   </div>
                 </LanguageSelected>
                 {isSelectLang && (
-                  <LanguageOptions>
+                  <LanguageOptions data-aos="flip-left">
                     {LIST_LANGUAGES?.map(
                       (lang: OptionLanguageType, index: number) => (
                         <LanguageOption

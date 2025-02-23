@@ -17,14 +17,18 @@ export default function OurGames() {
   const { trans } = useContext(ContextProviderWrapper)!;
   return (
     <WrapOurGames id="games">
-      <TitleBlock>
+      <TitleBlock data-aos="fade-up">
         <h2 className="mb-6">{translate("Our Games", trans)}</h2>
         <p className="text-center">{translate("As", trans)}</p>
       </TitleBlock>
       <ContainerBlock>
         <ShowAllGame className="flex">
           {LIST_GAMES.map((row: GameSlideType[], index: number) => (
-            <SlideGames className="flex flex-col" key={index}>
+            <SlideGames
+              data-aos={"fade-up"}
+              className="flex flex-col"
+              key={index}
+            >
               {row.map((game: GameSlideType, jdex: number) => (
                 <WrapSlideGameItem key={jdex}>
                   <SlideGameItem

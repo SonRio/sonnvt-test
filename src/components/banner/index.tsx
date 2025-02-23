@@ -108,13 +108,14 @@ export default function BannerCPN() {
       <CountDownContainer>
         <div className="bg-blur"></div>
         <h1
+          className="animate__animated animate__fadeInLeft"
           dangerouslySetInnerHTML={{
             __html: translate("We re Getting Ready", trans, {
               br: isMobile ? "<br />" : "",
             }),
           }}
         ></h1>
-        <TimeCountDown className="flex justify-between">
+        <TimeCountDown className="flex justify-between animate__animated animate__fadeInRight">
           <Time>
             <h2>{days}</h2>
             <p>{translate("Days", trans)}</p>
@@ -135,7 +136,7 @@ export default function BannerCPN() {
             <p>{translate("Second", trans)}</p>
           </Time>
         </TimeCountDown>
-        <DesAndInput>
+        <DesAndInput className="animate__animated animate__fadeInUp">
           <p>{translate("We will back", trans)}</p>
           <InputEmail>
             <input

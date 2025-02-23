@@ -4,6 +4,7 @@ import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import { ContextProvider } from "@/context";
+import "aos/dist/aos.css"; // You can also use <link> for styles
 
 const montserrat = Montserrat({
   subsets: ["latin"],

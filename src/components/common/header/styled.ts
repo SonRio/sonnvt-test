@@ -128,7 +128,6 @@ export const WrapModalMenu = styled.div`
   padding: 30px 20px;
   padding-bottom: 100px;
   min-height: 100vh;
-  background-color: #fff;
 `;
 
 export const ModalMenuMB = styled.div`

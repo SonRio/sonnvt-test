@@ -5,6 +5,8 @@ import Footer from "@/components/common/footer";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import { ContextProvider } from "@/context";
 import "aos/dist/aos.css"; // You can also use <link> for styles
+import StyledComponentsRegistry from "@/libs/styled-component-registry";
+import ClientLayout from "@/libs/client-layout";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -38,9 +40,13 @@ export default function RootLayout({
         className={`${montserrat.className} ${playfair_Display.className} antialiased`}
       >
         <ContextProvider>
-          <Header />
-          {children}
-          <Footer />
+          <StyledComponentsRegistry>
+            <ClientLayout>
+              <Header />
+              {children}
+              <Footer />
+            </ClientLayout>
+          </StyledComponentsRegistry>
         </ContextProvider>
       </body>
     </html>

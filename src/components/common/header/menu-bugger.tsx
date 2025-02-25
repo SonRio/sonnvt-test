@@ -58,7 +58,12 @@ const MenuHamburger = ({
           : `animate__faster animate__animated animate__fadeOutUp`
       }
     >
-      <ModalMenuMB>
+      <ModalMenuMB
+        style={{
+          background: isShowMenu ? "#fff" : "transparent",
+          opacity: isShowMenu ? 1 : 0,
+        }}
+      >
         <HeaderMenuMB className="flex justify-between items-center">
           <SwitchLanguage
             onClick={() => {
